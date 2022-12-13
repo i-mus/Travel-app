@@ -78,13 +78,13 @@
 		<div class="menu_content">
 			<ul>
 				<li><a href="/">Home</a></li>
-				<li><a href="/">About us</a></li>
+				<li><a href="#">About us</a></li>
 				{% if user.is_authenticated %}
 				<li><strong>Hello {{user.username}}</strong></li>
-				<li><a href="credentials/logout">logout</a></li>
+				<li><a href="{% url 'credentials:logout' %}">logout</a></li>
 				{% else %}
-				<li><a href="credentials/register">Register</a></li>
-				<li><a href="credentials/login">login</a></li>
+				<li><a href="{% url 'credentials:register' %}">Register</a></li>
+				<li><a href="{% url 'credentials:login' %}">login</a></li>
 				{% endif %}
 			</ul>
 		</div>
@@ -223,9 +223,9 @@
 				<div class="col-lg-4 why_col">
 					<div class="why_item">
 						<div class="why_image">
-							<img class="" src="{{i.img.url}}" alt="" style="">
+							<img class="why_image" src="{{i.img.url}}" alt="" style="height: 250px;">
 							<div class="why_icon d-flex flex-column align-items-center justify-content-center">
-								<img src="{% static 'images/why_1.svg' %}" alt="">
+								<img class="" src="{% static 'images/why_1.svg' %}" alt="">
 							</div>
 						</div>
 						<div class="why_content text-center">
@@ -259,7 +259,7 @@
 				{% for j in teams %}
 				<div class="col-xl-3 col-md-6 team_col">
 					<div class="team_item d-flex flex-column align-items-center justify-content-start text-center">
-						<div class="team_image rounded"><img src="{{j.img.url}}" alt=""></div>
+						<div class="team_image rounded"><img src="{{j.img.url}}" alt="" style="height: 200px;"></div>
 						<div class="team_content">
 							<div class="team_title"><a href="#">{{j.name}}</a></div>
 							<div class="team_text">
